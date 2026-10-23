@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+/* el modo oscuro se activa con la clase .dark en el html */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* paleta institucional del MIO, igual en los dos modos */
+@theme {
+  --font-sans: "Inter", "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* azul institucional */
+  --color-mio-50: #e8f1f9;
+  --color-mio-100: #c7dcef;
+  --color-mio-200: #8fbae0;
+  --color-mio-300: #4b90c9;
+  --color-mio-400: #1b6fb4;
+  --color-mio-500: #00529b;
+  --color-mio-600: #004787;
+  --color-mio-700: #003c72;
+  --color-mio-800: #00305c;
+  --color-mio-900: #002344;
+
+  /* verde biodiversidad */
+  --color-verde-50: #f1f9e8;
+  --color-verde-100: #ddf0c7;
+  --color-verde-200: #bfe293;
+  --color-verde-300: #9ed05e;
+  --color-verde-400: #84c33f;
+  --color-verde-500: #70b72a;
+  --color-verde-600: #5f9c22;
+  --color-verde-700: #4c7d1b;
+  --color-verde-800: #3a6015;
+  --color-verde-900: #2a460f;
+
+  /* rojo MIO */
+  --color-rojo-50: #fdecec;
+  --color-rojo-100: #f9cdcf;
+  --color-rojo-200: #f09a9d;
+  --color-rojo-300: #e5666b;
+  --color-rojo-400: #de4046;
+  --color-rojo-500: #d8222a;
+  --color-rojo-600: #b81b22;
+  --color-rojo-700: #96151b;
+  --color-rojo-800: #731014;
+
+  /* naranja de apoyo, para las rutas alimentadoras */
+  --color-naranja-50: #fdf0e4;
+  --color-naranja-100: #f9dbbe;
+  --color-naranja-500: #e4701e;
+  --color-naranja-600: #c25c14;
+  --color-naranja-700: #9c4810;
+
+  --color-oro-400: #f5c04a;
+  --color-oro-600: #c9881f;
+}
+
+/* colores que cambian según el modo claro u oscuro */
+@theme inline {
+  --color-plano: var(--c-plano);
+  --color-superficie: var(--c-superficie);
+  --color-superficie-2: var(--c-superficie-2);
+  --color-ink: var(--c-ink);
+  --color-ink-2: var(--c-ink-2);
+  --color-ink-3: var(--c-ink-3);
+  --color-linea: var(--c-linea);
+
+  --color-mio-suave: var(--c-mio-suave);
+  --color-mio-fuerte: var(--c-mio-fuerte);
+  --color-verde-suave: var(--c-verde-suave);
+  --color-verde-fuerte: var(--c-verde-fuerte);
+  --color-rojo-suave: var(--c-rojo-suave);
+  --color-rojo-fuerte: var(--c-rojo-fuerte);
+  --color-naranja-suave: var(--c-naranja-suave);
+  --color-naranja-fuerte: var(--c-naranja-fuerte);
+
+  --color-pend-suave: var(--c-pend-suave);
+  --color-pend-fuerte: var(--c-pend-fuerte);
+  --color-pend-borde: var(--c-pend-borde);
+  --color-apro-suave: var(--c-apro-suave);
+  --color-apro-fuerte: var(--c-apro-fuerte);
+  --color-apro-borde: var(--c-apro-borde);
+  --color-rech-suave: var(--c-rech-suave);
+  --color-rech-fuerte: var(--c-rech-fuerte);
+  --color-rech-borde: var(--c-rech-borde);
+
+  /* las sombras también cambian con el modo */
+  --shadow-sm: var(--s-sm);
+  --shadow-md: var(--s-md);
+  --shadow-lg: var(--s-lg);
+  --shadow-xl: var(--s-xl);
+}
+
+:root {
+  color-scheme: light;
+
+  --c-plano: #f0f4f8;
+  --c-superficie: #ffffff;
+  --c-superficie-2: #f7fafc;
+  --c-ink: #1e293b;
+  --c-ink-2: #475569;
+  --c-ink-3: #5b6b80;
+  --c-linea: #eef1f5;
+
+  --c-mio-suave: #e8f1f9;
+  --c-mio-fuerte: #00529b;
+  --c-verde-suave: #f1f9e8;
+  --c-verde-fuerte: #4c7d1b;
+  --c-rojo-suave: #fdecec;
+  --c-rojo-fuerte: #b81b22;
+  --c-naranja-suave: #fdf0e4;
+  --c-naranja-fuerte: #9c4810;
+
+  --c-pend-suave: #fff6e0;
+  --c-pend-fuerte: #8a5a00;
+  --c-pend-borde: #f6dca2;
+  --c-apro-suave: #f1f9e8;
+  --c-apro-fuerte: #4c7d1b;
+  --c-apro-borde: #c9e8a5;
+  --c-rech-suave: #fdecec;
+  --c-rech-fuerte: #b81b22;
+  --c-rech-borde: #f5c3c5;
+
+  /* sombras amplias y suaves */
+  --s-sm: 0 1px 2px rgb(15 42 71 / 0.06);
+  --s-md: 0 6px 16px -4px rgb(15 42 71 / 0.1), 0 2px 6px -2px rgb(15 42 71 / 0.05);
+  --s-lg: 0 16px 36px -10px rgb(15 42 71 / 0.16), 0 6px 14px -6px rgb(15 42 71 / 0.07);
+  --s-xl: 0 28px 56px -14px rgb(15 42 71 / 0.2), 0 10px 22px -10px rgb(15 42 71 / 0.09);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --c-plano: #0b1220;
+  --c-superficie: #111a28;
+  --c-superficie-2: #17222f;
+  --c-ink: #e8eef5;
+  --c-ink-2: #aebbcb;
+  --c-ink-3: #8c9bad;
+  --c-linea: #243041;
+
+  --c-mio-suave: #0e2740;
+  --c-mio-fuerte: #7db6e8;
+  --c-verde-suave: #16290e;
+  --c-verde-fuerte: #9ed05e;
+  --c-rojo-suave: #2d1113;
+  --c-rojo-fuerte: #f09a9d;
+  --c-naranja-suave: #2e1a0b;
+  --c-naranja-fuerte: #f0a568;
+
+  --c-pend-suave: #332a12;
+  --c-pend-fuerte: #f2c45a;
+  --c-pend-borde: #4d3f1c;
+  --c-apro-suave: #16290e;
+  --c-apro-fuerte: #9ed05e;
+  --c-apro-borde: #2f4a1b;
+  --c-rech-suave: #2d1113;
+  --c-rech-fuerte: #f09a9d;
+  --c-rech-borde: #4d2024;
+
+  --s-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --s-md: 0 6px 16px -4px rgb(0 0 0 / 0.5);
+  --s-lg: 0 18px 36px -12px rgb(0 0 0 / 0.6);
+  --s-xl: 0 30px 60px -16px rgb(0 0 0 / 0.7);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--c-plano);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-mio-400);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* el foco dentro del menú azul necesita contrastar con el fondo */
+.menu-institucional :where(a, button, [tabindex]):focus-visible {
+  outline-color: #ffffff;
+}
+
+::selection {
+  background-color: var(--color-mio-100);
+  color: var(--color-mio-900);
+}
+
+.dark ::selection {
+  background-color: var(--color-mio-600);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* si el usuario prefiere menos animación, quitamos el movimiento */
+  .hover\:-translate-y-1:hover,
+  .hover\:-translate-y-0\.5:hover,
+  .hover\:scale-105:hover {
+    transform: none !important;
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brillo-oro {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(245 192 74 / 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgb(245 192 74 / 0);
+  }
+}
+
+.animate-toast-in {
+  animation: toast-in 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-fade-up {
+  animation: fade-up 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-brillo-oro {
+  animation: brillo-oro 2.2s ease-out infinite;
+}
